@@ -3,11 +3,13 @@ require 'capybara/cucumber'
 require 'cucumber'
 require 'dotenv'
 require 'rspec'
+require 'site_prism'
 require 'webdrivers'
 
 Dotenv.load
 Dotenv.overload(".env.#{ENV['ENV']}")
 
+@tags = Array.new
 browser = (ENV['BROWSER'] || 'chrome').to_sym
 wait_time = 60 * 5
 
@@ -71,6 +73,19 @@ end
 Capybara.configure do |config|
   config.default_driver = browser
   config.default_max_wait_time = 30
+end
+
+def loadBrowser
+  if ENV['BROWSER'].downcase=="safari"
+      browser = (ENV['BROWSER']).to_sym
+  else
+    if @tags.include? "@mweb"
+      browser = (ENV['BROWSER']+'_mweb' || 'chrome').to_sym
+    else
+      browser = (ENV['BROWSER'] || 'chrome').to_sym
+    end
+  end
+  Capybara.current_driver = browser
 end
 
 

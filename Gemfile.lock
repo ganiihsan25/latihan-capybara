@@ -70,6 +70,11 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    site_prism (4.0.3)
+      addressable (~> 2.8)
+      capybara (~> 3.27)
+      site_prism-all_there (~> 2.0)
+    site_prism-all_there (2.0.2)
     sys-uname (1.2.3)
       ffi (~> 1.1)
     webdrivers (5.3.1)
@@ -88,6 +93,7 @@ DEPENDENCIES
   cucumber (~> 9.0, >= 9.0.2)
   dotenv (~> 2.8, >= 2.8.1)
   rspec (~> 3.12)
+  site_prism (~> 4.0, >= 4.0.3)
   webdrivers (~> 5.3, >= 5.3.1)
 
 BUNDLED WITH
